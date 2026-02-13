@@ -1,0 +1,293 @@
+﻿<UserControl x:Class="InvoiceApp.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:InvoiceApp.Converters">
+    <UserControl.Resources>
+        <converters:StatusToBrushConverter x:Key="StatusToBrushConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Dashboard" 
+                          FontSize="28" 
+                          FontWeight="Bold"
+                          Foreground="#2C3E50"/>
+                <TextBlock x:Name="WelcomeText" 
+                          Text="Welcome back!" 
+                          FontSize="14" 
+                          Foreground="#7F8C8D"
+                          Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Stats Cards -->
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Total Clients Card -->
+                <Border Grid.Column="0" 
+                       Background="#3498DB" 
+                       CornerRadius="8" 
+                       Padding="20"
+                       Margin="0,0,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="👥" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="Total Clients" 
+                                  FontSize="14" 
+                                  Foreground="White" 
+                                  Opacity="0.9"/>
+                        <TextBlock Text="{Binding TotalClients}"
+                                  FontSize="36" 
+                                  FontWeight="Bold" 
+                                  Foreground="White"
+                                  Margin="0,5,0,0"/>
+                        <TextBlock Text="Active customers" 
+                                  FontSize="11" 
+                                  Foreground="White" 
+                                  Opacity="0.7"
+                                  Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Total Invoices Card -->
+                <Border Grid.Column="1" 
+                       Background="#2ECC71" 
+                       CornerRadius="8" 
+                       Padding="20"
+                       Margin="0,0,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="📄" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="Total Invoices" 
+                                  FontSize="14" 
+                                  Foreground="White" 
+                                  Opacity="0.9"/>
+                        <TextBlock Text="{Binding TotalInvoices}"
+                                  FontSize="36" 
+                                  FontWeight="Bold" 
+                                  Foreground="White"
+                                  Margin="0,5,0,0"/>
+                        <TextBlock Text="All time" 
+                                  FontSize="11" 
+                                  Foreground="White" 
+                                  Opacity="0.7"
+                                  Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Revenue Card -->
+                <Border Grid.Column="2" 
+                       Background="#F39C12" 
+                       CornerRadius="8" 
+                       Padding="20"
+                       Margin="0,0,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="💰" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="Total Revenue" 
+                                  FontSize="14" 
+                                  Foreground="White" 
+                                  Opacity="0.9"/>
+                        <TextBlock Text="{Binding TotalRevenue, StringFormat=C}"
+                                  FontSize="36" 
+                                  FontWeight="Bold" 
+                                  Foreground="White"
+                                  Margin="0,5,0,0"/>
+                        <TextBlock Text="Paid invoices" 
+                                  FontSize="11" 
+                                  Foreground="White" 
+                                  Opacity="0.7"
+                                  Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Overdue Card -->
+                <Border Grid.Column="3" 
+                       Background="#E74C3C" 
+                       CornerRadius="8" 
+                       Padding="20">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="⚠️" FontSize="32" Margin="0,0,0,10"/>
+                        <TextBlock Text="Overdue" 
+                                  FontSize="14" 
+                                  Foreground="White" 
+                                  Opacity="0.9"/>
+                        <TextBlock Text="{Binding OverdueInvoices}"
+                                  FontSize="36" 
+                                  FontWeight="Bold" 
+                                  Foreground="White"
+                                  Margin="0,5,0,0"/>
+                        <TextBlock Text="Needs attention" 
+                                  FontSize="11" 
+                                  Foreground="White" 
+                                  Opacity="0.7"
+                                  Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Quick Stats Row -->
+            <Grid Grid.Row="2" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Pending Invoices -->
+                <Border Grid.Column="0" 
+                       Background="White" 
+                       BorderBrush="#ECF0F1" 
+                       BorderThickness="1"
+                       CornerRadius="8" 
+                       Padding="15"
+                       Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="Pending Invoices" 
+                                  FontSize="13" 
+                                  FontWeight="SemiBold"
+                                  Foreground="#7F8C8D"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <TextBlock Text="{Binding PendingInvoices}" 
+                                      FontSize="24" 
+                                      FontWeight="Bold" 
+                                      Foreground="#3498DB"/>
+                            <TextBlock Text=" invoices" 
+                                      FontSize="14" 
+                                      Foreground="#95A5A6"
+                                      VerticalAlignment="Bottom"
+                                      Margin="5,0,0,3"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- This Month -->
+                <Border Grid.Column="1" 
+                       Background="White" 
+                       BorderBrush="#ECF0F1" 
+                       BorderThickness="1"
+                       CornerRadius="8" 
+                       Padding="15"
+                       Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="This Month" 
+                                  FontSize="13" 
+                                  FontWeight="SemiBold"
+                                  Foreground="#7F8C8D"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <TextBlock Text="{Binding ThisMonthRevenue, StringFormat=C}"
+                                      FontSize="24" 
+                                      FontWeight="Bold" 
+                                      Foreground="#2ECC71"/>
+                            <TextBlock Text=" revenue" 
+                                      FontSize="14" 
+                                      Foreground="#95A5A6"
+                                      VerticalAlignment="Bottom"
+                                      Margin="5,0,0,3"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Average Invoice -->
+                <Border Grid.Column="2" 
+                       Background="White" 
+                       BorderBrush="#ECF0F1" 
+                       BorderThickness="1"
+                       CornerRadius="8" 
+                       Padding="15">
+                    <StackPanel>
+                        <TextBlock Text="Average Invoice" 
+                                  FontSize="13" 
+                                  FontWeight="SemiBold"
+                                  Foreground="#7F8C8D"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <TextBlock Text="{Binding AverageInvoice, StringFormat=C}"
+                                      FontSize="24" 
+                                      FontWeight="Bold" 
+                                      Foreground="#9B59B6"/>
+                            <TextBlock Text=" per invoice" 
+                                      FontSize="14" 
+                                      Foreground="#95A5A6"
+                                      VerticalAlignment="Bottom"
+                                      Margin="5,0,0,3"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Recent Invoices -->
+            <Border Grid.Row="3" 
+                   Background="White" 
+                   BorderBrush="#ECF0F1" 
+                   BorderThickness="1"
+                   CornerRadius="8" 
+                   Padding="20">
+                <StackPanel>
+                    <TextBlock Text="📋 Recent Invoices" 
+                              FontSize="18" 
+                              FontWeight="Bold"
+                              Foreground="#2C3E50"
+                              Margin="0,0,0,15"/>
+
+                    <DataGrid ItemsSource="{Binding RecentInvoices}" 
+                             AutoGenerateColumns="False"
+                             IsReadOnly="True"
+                             GridLinesVisibility="None"
+                             HeadersVisibility="Column"
+                             Background="White"
+                             RowBackground="White"
+                             AlternatingRowBackground="#F8F9FA"
+                             BorderThickness="0"
+                             CanUserResizeRows="False"
+                             SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Invoice #" Binding="{Binding InvoiceNumber}" Width="120"/>
+                            <DataGridTextColumn Header="Client" Binding="{Binding Client.CompanyName}" Width="*"/>
+                            <DataGridTextColumn Header="Date" Binding="{Binding InvoiceDate, StringFormat=d}" Width="100"/>
+                            <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate, StringFormat=d}" Width="100"/>
+                            <DataGridTextColumn Header="Amount" Binding="{Binding Total, StringFormat=C}" Width="120"/>
+                            <DataGridTemplateColumn Header="Status" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Background="{Binding Status, Converter={StaticResource StatusToBrushConverter}}" 
+                                               CornerRadius="12" 
+                                               Padding="8,4">
+                                            <TextBlock Text="{Binding Status}" 
+                                                      Foreground="White" 
+                                                      FontSize="11"
+                                                      FontWeight="SemiBold"
+                                                      TextAlignment="Center"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

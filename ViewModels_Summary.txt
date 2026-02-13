@@ -1,0 +1,19 @@
+VIEWMODELS CREATED:
+- ViewModelBase.cs
+- RelayCommand.cs
+- MainWindowViewModel.cs
+- DashboardViewModel.cs
+- InvoiceListViewModel.cs
+
+VIEWMODELS TO CREATE (placeholders - implement as needed):
+- ClientListViewModel.cs
+- ProductListViewModel.cs
+- StatementListViewModel.cs
+- SettingsViewModel.cs
+- InvoiceEditViewModel.cs (for edit dialog)
+
+These follow the same MVVM pattern with:
+- Observable collections for lists
+- Commands for actions
+- Service injection
+- Property change notifications

@@ -1,0 +1,135 @@
+﻿<Window x:Class="InvoiceApp.Views.EmailSendDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Send Invoice Email" 
+        Width="700"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400"
+        MaxHeight="800"
+        Background="#F5F5F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" 
+                  Text="Send Invoice via Email" 
+                  FontSize="18" 
+                  FontWeight="Bold" 
+                  Margin="0,0,0,20"/>
+
+        <!-- Email Fields -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="To:" FontWeight="Bold"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="ToEmailTextBox" Height="30"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Subject:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="SubjectTextBox" Height="30" Margin="0,10,0,0"/>
+        </Grid>
+
+        <!-- Email Body -->
+        <StackPanel Grid.Row="2" Margin="0,15,0,0">
+            <Label Content="Message:" FontWeight="Bold"/>
+            <TextBox x:Name="BodyTextBox" 
+                    Height="150"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"/>
+        </StackPanel>
+
+        <!-- Attachments -->
+        <StackPanel Grid.Row="3" Margin="0,15,0,0">
+            <Label Content="Attachments:" FontWeight="Bold"/>
+            <Border BorderBrush="#CCCCCC" BorderThickness="1" Padding="10" Background="White">
+                <StackPanel>
+                    <TextBlock Text="📎 Invoice PDF (automatically attached)" 
+                      FontWeight="SemiBold"
+                      Foreground="#2ECC71"
+                      Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Additional Documents (receipts, quotes, etc.):" 
+                      FontWeight="SemiBold"
+                      Margin="0,5,0,5"/>
+
+                    <ListBox x:Name="AttachmentsListBox" 
+                    MinHeight="80"
+                    MaxHeight="150"
+                    SelectionMode="Single">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📄 " FontSize="14"/>
+                                    <TextBlock Text="{Binding}" FontSize="12"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button Content="➕ Add Receipt/File" 
+                       Width="140" 
+                       Height="30"
+                       Background="#3498DB"
+                       Foreground="White"
+                       BorderThickness="0"
+                       Click="AddAttachmentButton_Click"/>
+                        <Button Content="🗑️ Remove Selected" 
+                       Width="140" 
+                       Height="30"
+                       Margin="10,0,0,0"
+                       Background="#E74C3C"
+                       Foreground="White"
+                       BorderThickness="0"
+                       Click="RemoveAttachmentButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <TextBlock Text="💡 Tip: You can attach receipts, quotes, purchase orders, or any supporting documents" 
+              Foreground="#7F8C8D" 
+              FontStyle="Italic"
+              FontSize="11"
+              Margin="0,5,0,0"
+              TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="5" 
+                   Orientation="Horizontal" 
+                   HorizontalAlignment="Right" 
+                   Margin="0,20,0,0">
+            <Button Content="Send Email" 
+                   Width="120" 
+                   Height="35"
+                   Background="#9B59B6"
+                   Foreground="White"
+                   BorderThickness="0"
+                   Click="SendButton_Click" 
+                   IsDefault="True"
+                   Margin="0,0,10,0"/>
+            <Button Content="Cancel" 
+                   Width="100" 
+                   Height="35"
+                   Background="#95A5A6"
+                   Foreground="White"
+                   BorderThickness="0"
+                   Click="CancelButton_Click" 
+                   IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,176 @@
+<UserControl x:Class="InvoiceApp.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:InvoiceApp.Converters">
+    <UserControl.Resources>
+        <converters:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </UserControl.Resources>
+            
+    <ScrollViewer>
+        <StackPanel DataContext="{Binding Settings}" Margin="0,0,20,0">
+            <TextBlock Text="Settings" Style="{StaticResource TitleTextBlock}"/>
+
+            <!-- Company Profile -->
+            <TextBlock Text="Company Profile" Style="{StaticResource SubtitleTextBlock}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Company Name:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CompanyName}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Address:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CompanyAddress}" AcceptsReturn="True" Height="60"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Phone:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CompanyPhone}"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Email:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CompanyEmail}"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="VAT Number:"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CompanyVatNumber}"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Content="Logo:" VerticalAlignment="Top"/>
+                <StackPanel Grid.Row="5" Grid.Column="1">
+                    <Button Content="Browse..." 
+            Width="100"
+            HorizontalAlignment="Left" 
+            Command="{Binding DataContext.BrowseLogoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                    <Image x:Name="LogoPreview" 
+                           Source="{Binding CompanyLogo, Converter={StaticResource ByteArrayToImageConverter}}"
+           MaxHeight="100" 
+           MaxWidth="200"
+           Margin="0,10,0,0"
+           HorizontalAlignment="Left"
+           Stretch="Uniform">
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CompanyLogo}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <TextBlock Text="(No logo uploaded)" 
+               Margin="0,10,0,0"
+               Foreground="Gray"
+               FontStyle="Italic">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CompanyLogo}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
+
+                <Label Grid.Row="6" Grid.Column="0" Content="Currency Symbol:"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CurrencySymbol}" MaxLength="10"/>
+
+                <Label Grid.Row="7" Grid.Column="0" Content="Currency Code:"/>
+                <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding CurrencyCode}" MaxLength="10"/>
+            </Grid>
+
+            <!-- Invoice Settings -->
+            <TextBlock Text="Invoice Settings" Style="{StaticResource SubtitleTextBlock}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Invoice Prefix:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding InvoicePrefix}" Width="100" HorizontalAlignment="Left"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Next Number:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding InvoiceNextNumber}" Width="100" HorizontalAlignment="Left"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Default Tax Rate %:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DefaultTaxRate}" Width="100" HorizontalAlignment="Left"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Payment Terms:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding DefaultPaymentTerms}" AcceptsReturn="True" Height="60"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Invoice Footer:"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding InvoiceFooter}" AcceptsReturn="True" Height="60"/>
+            </Grid>
+
+            <!-- Email Settings -->
+            <TextBlock Text="Email Settings" Style="{StaticResource SubtitleTextBlock}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="SMTP Server:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SmtpServer}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Port:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SmtpPort}" Width="100" HorizontalAlignment="Left"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Username:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SmtpUsername}"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Password:"/>
+                <PasswordBox Grid.Row="3" Grid.Column="1" 
+             x:Name="SmtpPasswordBox"
+             PasswordChanged="SmtpPasswordBox_PasswordChanged"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Use SSL/TLS:"/>
+                <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding SmtpUseSsl}" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Content="From Address:"/>
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding EmailFromAddress}"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Content="From Name:"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding EmailFromName}"/>
+
+                <Button Grid.Row="7" Grid.Column="1" Content="Test Email Connection" HorizontalAlignment="Left"
+                        Command="{Binding DataContext.TestEmailCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+            </Grid>
+
+            <!-- Save Button -->
+            <Button Content="Save Settings" Width="150" HorizontalAlignment="Left" Margin="0,20,0,0"
+                    Command="{Binding DataContext.SaveCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
