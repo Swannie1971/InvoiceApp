@@ -13,6 +13,7 @@ namespace InvoiceApp
     public partial class App : Application
     {
         private IServiceProvider? _serviceProvider;
+        public IServiceProvider Services => _serviceProvider!;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -70,6 +71,8 @@ namespace InvoiceApp
             // Views and ViewModels
             services.AddTransient<MainWindow>();
             services.AddTransient<MainWindowViewModel>();
+
+            services.AddSingleton<IUpdateService, UpdateService>();
         }
 
         private void InitializeDatabase()

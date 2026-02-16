@@ -1,7 +1,10 @@
+using InvoiceApp.Helpers;
+using InvoiceApp.Services;
+using InvoiceApp.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using InvoiceApp.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InvoiceApp.Views
 {
@@ -10,6 +13,7 @@ namespace InvoiceApp.Views
         public SettingsView()
         {
             InitializeComponent();
+            VersionText.Text = AppVersion.Version;
             Loaded += SettingsView_Loaded;
         }
 
@@ -30,7 +34,20 @@ namespace InvoiceApp.Views
                 viewModel.Settings.SmtpPassword = SmtpPasswordBox.Password;
             }
         }
+        private async void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is SettingsViewModel viewModel)
+            {
+                await viewModel.CheckForUpdatesAsync();
+            }
+        }
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            var app = (App)Application.Current;
+            var authService = app.Services.GetRequiredService<IAuthenticationService>();
+
+            var dialog = new ChangePasswordDialog(authService);
+            dialog.ShowDialog();
+        }
     }
 }
-
-

@@ -1,28 +1,29 @@
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
-using System;
+using System.Windows;
+using System.Windows.Input;
 using InvoiceApp.Models;
 using InvoiceApp.Services;
 using Microsoft.Win32;
-using System.Windows;
-using System.Windows.Input;
-using System.IO;
 
 namespace InvoiceApp.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
     {
         private readonly ISettingsService _settingsService;
+        private readonly IUpdateService _updateService;
         private AppSettings? _settings;
 
-        public SettingsViewModel(ISettingsService settingsService)
+        public SettingsViewModel(ISettingsService settingsService, IUpdateService updateService)
         {
             _settingsService = settingsService;
+            _updateService = updateService;
 
             SaveCommand = new AsyncRelayCommand(SaveSettingsAsync);
             BrowseLogoCommand = new RelayCommand(BrowseLogo);
             TestEmailCommand = new AsyncRelayCommand(TestEmailAsync);
+            CheckUpdatesCommand = new AsyncRelayCommand(CheckForUpdatesAsync);
 
             LoadSettingsAsync();
         }
@@ -36,6 +37,7 @@ namespace InvoiceApp.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand BrowseLogoCommand { get; }
         public ICommand TestEmailCommand { get; }
+        public ICommand CheckUpdatesCommand { get; }
 
         private async void LoadSettingsAsync()
         {
@@ -93,7 +95,31 @@ namespace InvoiceApp.ViewModels
                 }
             }
         }
+
+        public async Task CheckForUpdatesAsync()
+        {
+            try
+            {
+                var updateInfo = await _updateService.CheckForUpdatesAsync();
+
+                if (updateInfo.IsUpdateAvailable)
+                {
+                    await _updateService.DownloadAndInstallUpdateAsync(updateInfo);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"You are running the latest version ({updateInfo.CurrentVersion}).",
+                        "No Updates Available",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking for updates: {ex.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
-
-

@@ -1,10 +1,12 @@
+using InvoiceApp.Helpers;
+using InvoiceApp.Services;
+using InvoiceApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using InvoiceApp.Services;
 
 namespace InvoiceApp.ViewModels
 {
@@ -17,9 +19,9 @@ namespace InvoiceApp.ViewModels
         private readonly ISettingsService _settingsService;
         private readonly IEmailService _emailService;
         private readonly IAuthenticationService _authService;
-
+        private readonly IUpdateService _updateService;
         private ViewModelBase? _currentViewModel;
-        private string _title = "Invoice App";
+        private string _title = AppVersion.FullVersion;
 
         private readonly IPdfService _pdfService;
         public MainWindowViewModel(
@@ -30,7 +32,8 @@ namespace InvoiceApp.ViewModels
             ISettingsService settingsService,
             IPdfService pdfService,
             IEmailService emailService,
-            IAuthenticationService authService)
+            IAuthenticationService authService,
+            IUpdateService updateService)
         {
             _productService = productService;
             _clientService = clientService;
@@ -40,6 +43,7 @@ namespace InvoiceApp.ViewModels
             _pdfService = pdfService;
             _emailService = emailService;
             _authService = authService;
+            _updateService = updateService;
 
             // Initialize commands
             ShowDashboardCommand = new RelayCommand(ShowDashboard);
@@ -50,6 +54,8 @@ namespace InvoiceApp.ViewModels
             ShowSettingsCommand = new RelayCommand(ShowSettings);
             LogoutCommand = new RelayCommand(Logout);
             ShowReportsCommand = new RelayCommand(ShowReports);
+            CheckUpdatesCommand = new AsyncRelayCommand(CheckForUpdatesAsync);
+            ChangePasswordCommand = new RelayCommand(ChangePassword);
 
             // Show dashboard by default
             ShowDashboard();
@@ -75,6 +81,8 @@ namespace InvoiceApp.ViewModels
         public ICommand ShowSettingsCommand { get; }
         public ICommand LogoutCommand { get; }
         public ICommand ShowReportsCommand { get; }
+        public ICommand CheckUpdatesCommand { get; }
+        public ICommand ChangePasswordCommand { get; }
         private void ShowDashboard()
         {
             CurrentViewModel = new DashboardViewModel(_invoiceService, _clientService);
@@ -102,7 +110,7 @@ namespace InvoiceApp.ViewModels
 
         private void ShowSettings()
         {
-            CurrentViewModel = new SettingsViewModel(_settingsService);
+            CurrentViewModel = new SettingsViewModel(_settingsService, _updateService);
         }
         private void Logout()
         {
@@ -130,6 +138,36 @@ namespace InvoiceApp.ViewModels
         private void ShowReports()
         {
             CurrentViewModel = new ReportsViewModel(_invoiceService, _clientService, _settingsService);
+        }
+        private async Task CheckForUpdatesAsync()
+        {
+            try
+            {
+                var updateInfo = await _updateService.CheckForUpdatesAsync();
+
+                if (updateInfo.IsUpdateAvailable)
+                {
+                    await _updateService.DownloadAndInstallUpdateAsync(updateInfo);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"You are running the latest version ({updateInfo.CurrentVersion}).",
+                        "No Updates Available",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking for updates: {ex.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void ChangePassword()
+        {
+            var dialog = new ChangePasswordDialog(_authService);
+            dialog.ShowDialog();
         }
     }
 }

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\swann\\Documents\\InvoiceApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\invoiceapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\invoiceapp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\viewmodels\\reportsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\viewmodels\\reportsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\views\\settingsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\views\\settingsview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\views\\reportsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\views\\reportsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|c:\\users\\swann\\documents\\invoiceapp\\invoiceapp\\views\\changepassworddialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5E9F3D-7C4A-4E2B-9F1A-6D3E5C7F8A9B}|InvoiceApp\\InvoiceApp.csproj|solutionrelative:invoiceapp\\views\\changepassworddialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,62 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\.gitignore",
-              "RelativeDocumentMoniker": "InvoiceApp\\.gitignore",
-              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\.gitignore",
-              "RelativeToolTip": "InvoiceApp\\.gitignore",
-              "ViewState": "AgIAACwAAAAAAAAAAADwv0sAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-02-13T12:01:05.717Z",
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "InvoiceApp\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "InvoiceApp\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAwKoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T11:14:30.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InvoiceApp",
-              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\InvoiceApp.csproj",
-              "RelativeDocumentMoniker": "InvoiceApp\\InvoiceApp.csproj",
-              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\InvoiceApp.csproj",
-              "RelativeToolTip": "InvoiceApp\\InvoiceApp.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-12T09:21:51.469Z",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "InvoiceApp\\Views\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "InvoiceApp\\Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-16T11:07:41.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ReportsView.xaml",
-              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\ReportsView.xaml",
-              "RelativeDocumentMoniker": "InvoiceApp\\Views\\ReportsView.xaml",
-              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\ReportsView.xaml",
-              "RelativeToolTip": "InvoiceApp\\Views\\ReportsView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-12T08:25:04.867Z"
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\App.xaml.cs",
+              "RelativeDocumentMoniker": "InvoiceApp\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\App.xaml.cs",
+              "RelativeToolTip": "InvoiceApp\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T11:06:17.659Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ReportsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\ViewModels\\ReportsViewModel.cs",
-              "RelativeDocumentMoniker": "InvoiceApp\\ViewModels\\ReportsViewModel.cs",
-              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\ViewModels\\ReportsViewModel.cs",
-              "RelativeToolTip": "InvoiceApp\\ViewModels\\ReportsViewModel.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAcwAQBAAAJAAAAAAAAAA==",
+              "Title": "SettingsView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\SettingsView.xaml.cs",
+              "RelativeDocumentMoniker": "InvoiceApp\\Views\\SettingsView.xaml.cs",
+              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\SettingsView.xaml.cs",
+              "RelativeToolTip": "InvoiceApp\\Views\\SettingsView.xaml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T08:22:05.113Z"
+              "WhenOpened": "2026-02-16T11:04:27.856Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "InvoiceService.cs",
-              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Services\\InvoiceService.cs",
-              "RelativeDocumentMoniker": "InvoiceApp\\Services\\InvoiceService.cs",
-              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Services\\InvoiceService.cs",
-              "RelativeToolTip": "InvoiceApp\\Services\\InvoiceService.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA/wCwAAAApAAAAAAAAAA==",
+              "Title": "ChangePasswordDialog.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\ChangePasswordDialog.xaml.cs",
+              "RelativeDocumentMoniker": "InvoiceApp\\Views\\ChangePasswordDialog.xaml.cs",
+              "ToolTip": "C:\\Users\\swann\\Documents\\InvoiceApp\\InvoiceApp\\Views\\ChangePasswordDialog.xaml.cs",
+              "RelativeToolTip": "InvoiceApp\\Views\\ChangePasswordDialog.xaml.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAowF4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T08:14:28.985Z"
+              "WhenOpened": "2026-02-16T11:03:39.254Z",
+              "EditorCaption": ""
             }
           ]
         }
